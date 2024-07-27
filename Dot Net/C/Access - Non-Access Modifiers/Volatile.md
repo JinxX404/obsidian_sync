@@ -1,0 +1,1 @@
+Applied to a field to indicate that it can be accessed and modified by multiple threads and should not be cached.

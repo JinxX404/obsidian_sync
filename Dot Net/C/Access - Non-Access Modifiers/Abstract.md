@@ -1,0 +1,1 @@
+Applied to a method or class that declares its structure but doesn't provide an implementation. Derived classes must provide implementations.

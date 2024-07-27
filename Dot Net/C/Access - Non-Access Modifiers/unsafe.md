@@ -1,0 +1,1 @@
+Allows the use of unsafe code, including pointer manipulation. Used in low-level scenarios where performance is critical.

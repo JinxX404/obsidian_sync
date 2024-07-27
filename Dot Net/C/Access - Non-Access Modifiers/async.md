@@ -1,0 +1,1 @@
+Applied to a method to indicate that it's asynchronous and can use the `await` keyword. Allows non-blocking I/O and concurrency.

@@ -1,0 +1,1 @@
+Applied to a method to indicate that it's implemented externally in a native language like C or C++. Used for platform-specific interop.

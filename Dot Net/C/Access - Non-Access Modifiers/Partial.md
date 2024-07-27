@@ -1,0 +1,1 @@
+Allows a class, struct, or interface to be defined in multiple source files. Useful for code organization and code generation.

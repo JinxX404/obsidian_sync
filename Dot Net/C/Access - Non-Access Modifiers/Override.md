@@ -1,0 +1,1 @@
+Applied to a method to indicate that it can be overridden in derived classes.

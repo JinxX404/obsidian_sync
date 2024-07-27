@@ -1,0 +1,1 @@
+**Applied to a class to prevent it from being inherited. Applied to a method to prevent it from being overridden**
