@@ -12,7 +12,7 @@
 
 [[expressions]]
 
-[[alias]]
+[[19-Alias]]
 
 [[Casting]]
 
@@ -28,9 +28,9 @@
 
 [[Constructor Overloading & Chaining]]
 
-[[Properties]]
+[[18-Properties (First Class Member)]]
 
-[[Object Initializer]]
+[[20-Object Initializer]]
 
 [[private constructor]]
 
