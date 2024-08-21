@@ -1,6 +1,6 @@
 **Strongly typed named constants**
 
-هو تايب زي اي تايب كانه كلاس او ستراكت
+هو داتا تايب زي اي تايب كانه كلاس او ستراكت
 لاكن هو value type
 لو عندي مجموعه من الثوابت ليها علاقه بشي معين
 مثلا شهور السنه دول ثابتين اقدر اعملهم في enum
@@ -8,7 +8,23 @@
 او الجيندر
 كل الي جواه يعتبرو constants
 
+
+-Each constant inside an `enum` is typically referred to as an "enumerator" or "enum member."
+
+-Enum can only declared inside class or namespace
+
+-The Value of enum members cannot  be changed out of enum declaration 
+يعني مقدرش بره في الmain method اقوله Week.Sunday = 5 
+طلاما عملت declare جوه الenum مقدرش اغيره بره
+
+-the members of the enum are always public and no access modifiers can be applied
+
+![[Pasted image 20240807215857.png]]
+
+-two or more members of enum can have same value
+
 ---
+
 
 access_modifier enum enum_name {
 
