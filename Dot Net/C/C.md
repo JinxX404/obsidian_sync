@@ -36,11 +36,11 @@
 
 [[Indexer]]
 
-[[Lambda Expressions]]
+[[38-Lambda Expressions]]
 
 [[expression-bodied members]]
 
-[[Delegates]]
+[[37-Delegates]]
 
 [[Operator Overloading]]
 

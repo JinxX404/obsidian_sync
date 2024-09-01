@@ -28,3 +28,14 @@ https://www.sqlservertutorial.net/sql-server-aggregate-functions/sql-server-coun
 
 لو استخدمت count مع اسم الcolumn مش هيحسب الnull values 
 لو استخدمت   count( * ) هيرجعلي العدد بالnull 
+
+كل الagg fun مش بيحسبو الnull values 
+
+لو هعمل Select statement فيها agg fun وجمبها column عادي
+لازم اعمل group by بالcol ده
+مينفعش ارجع agg مع col كامل
+لان الagg بترجع Single value يعني one row
+لاكن الcol هيرجع عمود كامل
+وده ميعتبرش table ف علشان كده هتدي ايرور
+![[Pasted image 20240827162226.png]]
+الgroup by هتلم القيم المتشابهة مع بعض فالcol ده وهتحسب لكل قيمه فيهم agg مختلفه

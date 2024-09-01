@@ -74,3 +74,29 @@ WHERE
 A subquery can be nested within another subquery. SQL Server supports up to 32 levels of nesting.
 
 اقدر احط queries جوه بعضها لحد 32 واحده
+
+
+
+# 
+الsubquery بتتكتب فاي مكان فالكود محتاج اجيب فيه معلومه 
+ممكن يكون حتي فالSelect نفسها او having , where .......
+
+ممكن اكون مجبر استخدم الsubquery في حالات زي كده 
+![[Pasted image 20240827174845.png]] 
+مش هينفع اقوله where st_age < avg(st_age) مش بينفع استخدم الagg fun مع الwhere فالحاله دي 
+ف هعملها كsubquery والناتج منها هو avg وهقارن بيه 
+
+المثال التاني مش هينفع استخدم * مع agg fun لانه لازم اعمل group by بال* وده مش هينفع 
+فهستخدم الsubquery مكان الagg fun وهيرجع منها قيمه اقدر اطبعها 
+
+
+
+----
+لو فيه حاجه اقدر اعملها بالjoins و subquery 
+فبختار الjoins علشان اسرع فالاداء
+
+وال optimizer engine  فالباكجراوند لو جاله subquery بيحاول يحولها لjoin لو ينفع علشان يسرع الاداء 
+
+
+---
+ينفع استخدم الSubquery مع الDML
