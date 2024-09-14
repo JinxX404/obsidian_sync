@@ -436,7 +436,7 @@
 
 # ==SQL Server==
 
-- It is a fully RDBMS
+- It is a fully RDBMS 
 - The table 1 : M relationships ( parent and child )
 
 ![[Untitled 15.png]]
