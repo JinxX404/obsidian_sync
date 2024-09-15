@@ -45,7 +45,8 @@ FROM sales.customers
 ORDER BY first_name, last_name;
 ```
 بقوله لو لقيت الphone ب null اعرض مكانه N/A علشان تكون user friendly
-###### COALESCE vs. CASE expression
+###### 
+COALESCE vs. CASE expression
 
 The `COALESCE` expression is a syntactic sugar of the [`CASE`](https://www.sqlservertutorial.net/sql-server-basics/sql-server-case/) expression.
 
@@ -61,3 +62,11 @@ CASE
 ```
 
 Note that the query optimizer may use the `CASE` expression to rewrite the `COALESCE` expression.
+
+
+
+###### newid()
+بترجع global universal id (GUID)
+بتحط unique number and ranomaized لكل اوبجكت علي مستوي نفس السيرفر
+بستخدمها في اني اجيب random rows كل مره 
+بقوله order by newid() وكل مره هتعمل id مختلف وترتب بيه ف كده الاوتبوت مختلف فكل رن 

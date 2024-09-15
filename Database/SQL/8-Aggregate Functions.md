@@ -39,3 +39,5 @@ https://www.sqlservertutorial.net/sql-server-aggregate-functions/sql-server-coun
 وده ميعتبرش table ف علشان كده هتدي ايرور
 ![[Pasted image 20240827162226.png]]
 الgroup by هتلم القيم المتشابهة مع بعض فالcol ده وهتحسب لكل قيمه فيهم agg مختلفه
+
+
