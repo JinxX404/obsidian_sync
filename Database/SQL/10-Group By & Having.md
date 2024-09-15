@@ -62,3 +62,18 @@ group by category_id
 
 الwhere بتعمل كونديشن علي الrow
 لاكن having بتعمل كونديشن علي الColumns
+
+
+
+----
+فيه special case اقدر استخدم having بدون group by 
+لو الselect فيها agg function بس
+مش هينفع استخدم where
+ف الhaving هتتصرف ك where
+
+```sql
+select sum(salary)
+from Instructor
+having count(ins_id) > 100
+```
+بقوله احسب المرتبات لو عدد الموظفين اكبر من 100
