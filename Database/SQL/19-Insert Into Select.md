@@ -14,4 +14,3 @@ select * from student
 
 https://www.sqlservertutorial.net/sql-server-basics/sql-server-insert-into-select/
 
-
