@@ -13,3 +13,5 @@ select * from student
 الطريقه اسمها insert based in select 
 
 https://www.sqlservertutorial.net/sql-server-basics/sql-server-insert-into-select/
+
+
