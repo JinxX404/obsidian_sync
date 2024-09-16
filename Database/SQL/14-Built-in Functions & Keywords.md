@@ -65,8 +65,58 @@ Note that the query optimizer may use the `CASE` expression to rewrite the `C
 
 
 
-###### newid()
+##### newid()
 بترجع global universal id (GUID)
 بتحط unique number and ranomaized لكل اوبجكت علي مستوي نفس السيرفر
 بستخدمها في اني اجيب random rows كل مره 
 بقوله order by newid() وكل مره هتعمل id مختلف وترتب بيه ف كده الاوتبوت مختلف فكل رن 
+
+
+##### CASE 
+بنستخدمها علشان نحط كونديشن علي حاجه 
+نقدر نعمل بيها select او في الupdate للداتا
+
+في ال select ممكن اقوله لو الsalary مثلا اكبر من كذا اعرض كذا 
+
+```sql
+select * , 
+CASE 
+	when Salary >=1500 then 'High'
+	when Salary <1500 then 'Low'
+	else 'No Data'
+	end as Salary
+from Employee
+```
+هنا هيشوف كل سالري ويحط مكانه ناتج الكونديشن
+لازم الcase تنتهي ب end 
+الكونديشن when then
+
+
+والupdate ممكن اكون محتاج ازود السالري بنسبه معينه للناس الي اقل من رقم 
+وبنسبة معينة للناس الي اكبر من رقم 
+```sql
+update Employee
+	set Salary = 
+	Case 
+	when Salary >= 1500 then Salary * 1.25
+	when Salary < 1500 then Salary * 1.50
+	end 
+```
+كده هيشوف الكونديشن ويرجع رقم يتحط جوه السالري
+ومش كلهم هيتغيرو بنفس النسبة
+
+
+
+##### iif()
+ميثود بستخدمها لو عندي اتنين كونديشن فقط 
+زي ال ternary operator
+
+```sql
+select * , iif(Salary > 1500 , 'High' , 'Low')
+from Employee
+```
+فالاول بتاخد اي كونديشن وبعده حالة الترو وبعدين الفولس
+أقدر استخدمها فالابديت او السيليكت 
+
+
+
