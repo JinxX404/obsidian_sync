@@ -45,7 +45,7 @@ FROM sales.customers
 ORDER BY first_name, last_name;
 ```
 بقوله لو لقيت الphone ب null اعرض مكانه N/A علشان تكون user friendly
-###### 
+
 COALESCE vs. CASE expression
 
 The `COALESCE` expression is a syntactic sugar of the [`CASE`](https://www.sqlservertutorial.net/sql-server-basics/sql-server-case/) expression.
