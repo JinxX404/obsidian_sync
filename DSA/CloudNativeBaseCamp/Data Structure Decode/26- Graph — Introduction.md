@@ -86,5 +86,152 @@ A graph in which each vertex is connected to every other vertex. Example: A tour
 
 A graph G with a self-loop and some multiple edges is called a pseudo graph. A pseudograph is a type of graph that allows for the existence of self-loops (edges that connect a vertex to itself) and multiple edges (more than one edge connecting two vertices). In contrast, a simple graph is a graph that does not allow for loops or multiple edges.
 
-8. ****Weighted Graphs:**** A graph in which edges have weights or costs associated with them. Example: A road network graph where the weights can represent the distance between two cities.
-9. ****Unweighted Graph****s: A graph in which edges have no weights or costs associated with them. Example: A social network graph where the edges represent friendships.
+8. Weighted Graphs:
+A graph in which edges have weights or costs associated with them. Example: A road network graph where the weights can represent the distance between two cities.
+
+9. Unweighted Graphs: 
+A graph in which edges have no weights or costs associated with them. Example: A social network graph where the edges represent friendships.
+
+10. Multi Graph:
+Any graph which contains some parallel edges but doesn’t contain any self-loop is called a multigraph. For example a Road Map.
+
+## Representation of Graphs:
+الجراف هو رسمه وعلشان اطبق عليها الجوريزمات ف لازم اخزنها في داتا ستراكشرز اقدر اخزنها 
+اشهر طريقتين Adjacency Matrix و Adjacency List 
+
+ 1. Adjacency Matrix 
+ بنخزن فيها الجراف ك 2d array 
+ ![[Pasted image 20240924162247.png]]
+ بنحط الvertices ك columns , rows 
+ بنقراها من الrow لل col 
+ لو فيه ريلايشن بنحط 1 لو مفيش بنحط 0 
+ لو weighted graph بنحط الlabels الي بتعبر عن العلاقه مكان ال0 1 
+ يعني من A(row) ل B(col) فيه 1 معناها انه فيه علاقه من A ل B (فيه بينهم edge)
+
+
+![[Pasted image 20240924162858.png]]
+في حالة ال undirected graph الداتا بتتضاعف 
+لان كل فيرتكس ليها علاقه مع الي قبلها
+
+
+- The size of the matrix is determined by the number of vertices (or nodes) in a graph.
+- The edges in the graph are represented as values in the matrix. In case of unweighted graphs, the values are 0 or 1. In case of weighted graphs, the values are weights of the edges if edges are present, else 0.
+- If the graph has few edges, the matrix will be sparse.
+
+
+
+How to build an Adjacency Matrix:
+
+It is very easy and simple to construct an adjacency matrix for a graph there are certain steps given below that you need to follow:
+
+- Create an ****n x n**** matrix where ****n**** is the number of vertices in the graph.
+- Initialize all elements to 0.
+- For each edge (u, v) in the graph, if the graph is undirected mark a\[u]\[v] and a[v][u] as 1, and if the edge is directed from ****u**** to ****v****, mark a[u][v] as the 1. (Cells are filled with edge weight if the graph is weighted)
+
+### Applications of the Adjacency Matrix:
+
+- [****Graph algorithms:****](https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/) Many graph algorithms like [Dijkstra’s algorithm](https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/), [Floyd-Warshall algorithm](https://www.geeksforgeeks.org/floyd-warshall-algorithm-dp-16/), and [Kruskal’s algorithm](https://www.geeksforgeeks.org/kruskals-algorithm-simple-implementation-for-adjacency-matrix/) use adjacency matrices to represent graphs.
+- [****Image processing****](https://www.geeksforgeeks.org/digital-image-processing-basics/)****:**** Adjacency matrices are used in image processing to represent the adjacency relationship between pixels in an image.
+- [****Finding the shortest path between two nodes:****](https://www.geeksforgeeks.org/shortest-path-unweighted-graph/) By performing matrix multiplication on the adjacency matrix, one can find the shortest path between any two nodes in a graph. 
+
+### Advantages of using Adjacency Matrix:
+
+- An adjacency matrix is simple and easy to understand.
+- Adding or removing edges from a graph is quick and easy.
+- It allows constant time access to any edge in the graph.
+
+### Disadvantages of using Adjacency Matrix:
+
+- It is inefficient in terms of space utilisation for sparse graphs because it takes up O(N2) space.
+- Computing all neighbors of a vertex takes O(N) time.
+
+
+
+2. Adjacency List 
+عباره عن Array of Linked Lists
+كل عنصر من الاراي هو vertex اساسيه فالجراف هنعبر عنها 
+وكل لينكد ليست بعدها بتشاور علي vertex هي رايحالها
+![[Pasted image 20240924163321.png]]
+
+يعني هنا A هيكون مرتبط بيها كل الي هي بتشاور عليهم 
+عند A فيه بعدها B بتشاور علي C وده مش معناه ان فيه علاقه بين B , C 
+
+كل عنصر فالاراي هيكون مرتبط بيه كل العناصر الي هو مرتبط بيها (مش هيعبر عن علاقات كل عنصر من دول ببعضهم)
+
+
+
+
+## Real-World Usage 
+
+1. **Social Networks**
+
+- **Facebook** or **LinkedIn**: People are vertices, and friendships or connections are edges. You can use graphs to find common friends, recommend new connections, or detect communities.
+- **Twitter** or **Instagram**: Here, the graph might be directed, meaning one user follows another but not necessarily the other way around.
+
+2. **Google Maps and GPS Navigation**
+
+- Cities or locations are vertices, and roads are edges. The graph helps in finding the **shortest path** between two points (like how Google Maps gives you directions), using algorithms like **Dijkstra** or __A_ search_*.
+
+3. **Webpage Ranking (Google PageRank)**
+
+- The internet can be modeled as a graph where each **webpage is a vertex** and each hyperlink between pages is a directed edge. Google's PageRank algorithm uses graphs to rank pages based on their importance by looking at the links between them.
+
+4. **Recommendation Systems**
+
+- Graphs are used in **recommendation systems** like Netflix or Amazon. Users and items (like movies or products) are vertices, and the edges represent interactions (such as ratings or purchases). This helps in recommending similar items based on what other users with similar tastes have interacted with.
+
+5. **Network Communication**
+
+- The internet or any **computer network** is a graph where **devices (like routers, switches)** are vertices, and the physical or virtual **connections (wires, wireless links)** are edges. Graph algorithms help optimize data transfer routes, detect network failures, etc.
+
+6. **Biological Networks**
+
+- **Genes, proteins, and cells** can be modeled as vertices in graphs, with interactions between them (such as protein-protein interactions) being the edges. This is useful in **bioinformatics** for understanding biological processes, disease spread, or drug design.
+
+7. **Flight Networks**
+
+- Airports are vertices, and **flights between them are edges**. Airlines use graphs to plan routes, optimize schedules, or handle disruptions by finding alternate paths (e.g., connecting flights).
+
+8. **Electrical Circuits**
+
+- **Electrical components** (like resistors, capacitors, etc.) are vertices, and the connections between them (wires) are edges. This helps analyze how current flows through circuits.
+
+9. **Game Development (Pathfinding)**
+
+- In games like **chess** or **real-time strategy games**, the board or the game world can be modeled as a graph where each position is a vertex and valid moves are edges. Graph algorithms like **BFS** or **DFS** help characters or NPCs navigate through the game environment.
+
+10. **Task Scheduling (Dependency Graphs)**
+
+- In projects or task scheduling, tasks can be vertices, and dependencies between them are directed edges. This is useful in building schedules, detecting bottlenecks, or ensuring tasks are completed in the correct order (like in **build systems** or **software development pipelines**).
+
+11. **Artificial Intelligence**
+
+- Graphs are used in **AI and machine learning**, especially in **knowledge graphs** where entities (concepts, objects, etc.) are vertices, and relationships between them (is-a, part-of, etc.) are edges. This helps with understanding context or making better decisions.
+
+12. **Blockchain**
+
+- Blockchain networks can be viewed as graphs where **nodes** (computers participating in the blockchain) are vertices, and the **transactions or relationships** between them are edges. Graphs are used to analyze and maintain the decentralized network efficiently.
+
+13. **Search Engines**
+
+- **Crawling the web** is another graph problem. A web crawler visits web pages, which are vertices, and follows links (edges) to discover and index new content.
+
+14. **Fraud Detection**
+
+- Graphs help in **detecting fraud** in financial systems by representing users as vertices and transactions between them as edges. Unusual patterns in the graph (like large clusters or frequent transfers) can indicate fraud or money laundering.
+
+15. **Robot Navigation**
+
+- Robots use graphs to navigate through physical spaces. The environment is represented as a graph, where nodes represent locations and edges represent possible movements. Algorithms like **A*** are used to find the optimal path from one point to another.
+## Advantages and Disadvantages 
+
+Advantages of Graph Data Structure:
+- Graph Data Structure used to represent a wide range of relationships as we do not have any restrictions like previous data structures (Tree cannot have loops and have to be hierarchical. Arrays, Linked List, etc are linear)
+- They can be used to model and solve a wide range of problems, including pathfinding, data clustering, network analysis, and machine learning.
+- Any real world problem where we certain set of items and relations between them can be easily modeled as a graph and a lot of standard graph algorithms like BFS, DFS, Spanning Tree, Shortest Path, Topological Sorting and Strongly Connected
+- Graph Data Structure can be used to represent complex data structures in a simple and intuitive way, making them easier to understand and analyze.
+
+Disadvantages of Graph Data Structure:
+- Creating and manipulating graphs can be computationally expensive, especially for very large or complex graphs.
+- Graph algorithms can be difficult to design and implement correctly, and can be prone to bugs and errors.
+- Graph Data Structure can be difficult to visualize and analyze, especially for very large or complex graphs, which can make it challenging to extract meaningful insights from the data.
