@@ -1,3 +1,7 @@
+---
+share_link: https://share.note.sx/7necq3o1#ff9aat6WC5W3gnERt/dVmSQSY80sMip0nX3mzGOYv20
+share_updated: 2024-09-24T17:48:30+03:00
+---
 ****Graph Data Structure**** is a collection of ****nodes**** connected by ****edges****. It’s used to represent relationships between different entities. ****Graph algorithms**** are methods used to manipulate and analyze graphs.
 
 ## What is Graph Data Structure?
@@ -96,10 +100,12 @@ A graph in which edges have no weights or costs associated with them. Example: A
 Any graph which contains some parallel edges but doesn’t contain any self-loop is called a multigraph. For example a Road Map.
 
 ## Representation of Graphs:
+
 الجراف هو رسمه وعلشان اطبق عليها الجوريزمات ف لازم اخزنها في داتا ستراكشرز اقدر اخزنها 
 اشهر طريقتين Adjacency Matrix و Adjacency List 
 
- 1. Adjacency Matrix 
+#### 1. Adjacency Matrix
+
  بنخزن فيها الجراف ك 2d array 
  ![[Pasted image 20240924162247.png]]
  بنحط الvertices ك columns , rows 
@@ -126,28 +132,33 @@ It is very easy and simple to construct an adjacency matrix for a graph there ar
 
 - Create an ****n x n**** matrix where ****n**** is the number of vertices in the graph.
 - Initialize all elements to 0.
-- For each edge (u, v) in the graph, if the graph is undirected mark a\[u]\[v] and a[v][u] as 1, and if the edge is directed from ****u**** to ****v****, mark a[u][v] as the 1. (Cells are filled with edge weight if the graph is weighted)
+- For each edge (u, v) in the graph, if the graph is undirected mark a\[u]\[v] and a\[v]\[u] as 1, and if the edge is directed from ****u**** to ****v****, mark a\[u]\[v] as the 1. (Cells are filled with edge weight if the graph is weighted)
 
-### Applications of the Adjacency Matrix:
+Applications of the Adjacency Matrix:
 
-- [****Graph algorithms:****](https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/) Many graph algorithms like [Dijkstra’s algorithm](https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/), [Floyd-Warshall algorithm](https://www.geeksforgeeks.org/floyd-warshall-algorithm-dp-16/), and [Kruskal’s algorithm](https://www.geeksforgeeks.org/kruskals-algorithm-simple-implementation-for-adjacency-matrix/) use adjacency matrices to represent graphs.
-- [****Image processing****](https://www.geeksforgeeks.org/digital-image-processing-basics/)****:**** Adjacency matrices are used in image processing to represent the adjacency relationship between pixels in an image.
-- [****Finding the shortest path between two nodes:****](https://www.geeksforgeeks.org/shortest-path-unweighted-graph/) By performing matrix multiplication on the adjacency matrix, one can find the shortest path between any two nodes in a graph. 
+- [Graph algorithms:](https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/) Many graph algorithms like [Dijkstra’s algorithm](https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/), [Floyd-Warshall algorithm](https://www.geeksforgeeks.org/floyd-warshall-algorithm-dp-16/), and [Kruskal’s algorithm](https://www.geeksforgeeks.org/kruskals-algorithm-simple-implementation-for-adjacency-matrix/) use adjacency matrices to represent graphs.
+- [Image processing](https://www.geeksforgeeks.org/digital-image-processing-basics/)****:**** Adjacency matrices are used in image processing to represent the adjacency relationship between pixels in an image.
+- [Finding the shortest path between two nodes:](https://www.geeksforgeeks.org/shortest-path-unweighted-graph/) By performing matrix multiplication on the adjacency matrix, one can find the shortest path between any two nodes in a graph. 
 
-### Advantages of using Adjacency Matrix:
+Advantages of using Adjacency Matrix:
 
 - An adjacency matrix is simple and easy to understand.
 - Adding or removing edges from a graph is quick and easy.
 - It allows constant time access to any edge in the graph.
+- Time complexity for checking if there is an edge between two nodes: `O(1)` (constant time).
 
-### Disadvantages of using Adjacency Matrix:
+Disadvantages of using Adjacency Matrix:
 
-- It is inefficient in terms of space utilisation for sparse graphs because it takes up O(N2) space.
+- It is inefficient in terms of space utilization for sparse graphs because it takes up O(N^2) space.
 - Computing all neighbors of a vertex takes O(N) time.
 
+When to use it:
+
+- Graphs with dense connections (lots of edges).
+- When you need **fast access** to check if an edge exists between two nodes (constant-time edge lookup).
 
 
-2. Adjacency List 
+#### 2. Adjacency List 
 عباره عن Array of Linked Lists
 كل عنصر من الاراي هو vertex اساسيه فالجراف هنعبر عنها 
 وكل لينكد ليست بعدها بتشاور علي vertex هي رايحالها
@@ -159,6 +170,140 @@ It is very easy and simple to construct an adjacency matrix for a graph there ar
 كل عنصر فالاراي هيكون مرتبط بيه كل العناصر الي هو مرتبط بيها (مش هيعبر عن علاقات كل عنصر من دول ببعضهم)
 
 
+- The size of the matrix is determined by the number of nodes in the network.
+- The number of graph edges is easily computed.
+- The adjacency list is a [****jagged array****](https://www.geeksforgeeks.org/jagged-arrays-in-cpp/).
+
+How to build an Adjacency List?
+
+It is very easy and simple to construct an adjacency list for a graph there are certain steps given below that you need to follow:
+
+- Create an array of linked lists of size ****N****, where N is the number of vertices in the graph.
+- Create a linked list of adjacent vertices for each vertex in the graph.
+- For each edge ****(u, v)**** in the graph, add ****v**** to the linked list of ****u****, and add ****u**** to the linked list of ****v**** if the graph is undirected otherwise add ****v**** to the list of ****u**** if it is directed from ****u**** to ****v****. (In case of weighted graphs store the weight along with the connections).
+
+Applications of the Adjacency List:
+
+- [Graph algorithms](https://www.geeksforgeeks.org/introduction-to-graphs-data-structure-and-algorithm-tutorials/): Many graph algorithms like [Dijkstra’s algorithm](https://www.geeksforgeeks.org/introduction-to-dijkstras-shortest-path-algorithm/), [Breadth First Search](https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/), and [Depth First Search](https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/) use adjacency lists to represent graphs.
+- [Image Processing](https://www.geeksforgeeks.org/digital-image-processing-basics/): Adjacency lists can be used to represent the adjacency relationships between pixels in an image.
+- [Game Development](https://www.geeksforgeeks.org/how-to-get-started-with-game-development/): These lists can be used to store information about the connections between different areas or levels the game developers use graphs to represent game maps or levels.
+
+Advantages of using an Adjacency list:
+
+- An adjacency list is simple and easy to understand.
+- Adding or removing edges from a graph is quick and easy.
+- Space-efficient for sparse graphs: Only stores edges that actually exist.
+- Efficient for exploring neighbors: Iterating through neighbors is fast because only actual edges are stored.
+
+Disadvantages of using an Adjacency list:
+
+- In adjacency lists accessing the edges can take longer than the adjacency matrix.
+- It requires more memory than the adjacency matrix for dense graphs.
+* Slower edge lookup: To check if an edge exists between two vertices, you may need to iterate through the list, making it `O(V)` in the worst case.
+
+When to use it:
+- **Graphs with sparse connections (few edges)**.
+- When you need to **iterate over all the neighbors** of a node efficiently.
+-----
+
+- **Space complexity**: `O(V + E)`, where `V` is the number of vertices, and `E` is the number of edges.
+- **Time complexity for checking if an edge exists**: `O(V)` (you need to scan through the list of neighbors).
+- **Time complexity to find neighbors of a node**: `O(k)`, where `k` is the number of neighbors of the node (usually much less than `V`).
+
+ **Adjacency Matrix vs Adjacency List Comparison Table**
+
+|Aspect|**Adjacency Matrix**|**Adjacency List**|
+|---|---|---|
+|**Space Complexity**|`O(V^2)`|`O(V + E)`|
+|**Best for**|**Dense graphs** (lots of edges)|**Sparse graphs** (few edges)|
+|**Edge Lookup**|`O(1)`|`O(V)`|
+|**Iterating over neighbors**|`O(V)`|`O(k)` (k = number of neighbors)|
+|**Edge Insertion/Removal**|`O(1)`|`O(1)` (adding/removing edges)|
+|**Memory Usage**|High|Low (for sparse graphs)|
+|**Common Use Cases**|**Dense networks** like social networks|**Roadmaps**, **friendship networks**|
+
+**Dense Graph vs. Sparse Graph**
+
+**Dense graphs** and **sparse graphs** are terms used to describe the **number of edges** in a graph relative to the number of vertices (nodes). These concepts are important when choosing the right data structure (like adjacency matrix or adjacency list) and algorithms for solving problems efficiently.
+
+
+**1. Dense Graph**
+
+**Definition**:
+
+A **dense graph** is a graph in which there are a **lot of edges** between the vertices. In mathematical terms, a dense graph has **close to the maximum number of edges**.
+
+- For an **undirected graph**, the **maximum number of edges** is V(V−1)/2​, where V is the number of vertices.
+- For a **directed graph**, the **maximum number of edges** is V(V−1)
+
+A graph is considered **dense** if it has **close to this maximum number of edges**.
+
+**Example**:
+
+For a graph with 5 vertices, the maximum number of edges in an undirected graph would be:
+
+5(5−1)2=10 edges
+
+If a graph has, say, 8 or 9 edges out of these 10, it would be considered **dense**.
+
+**Properties**:
+
+- **Number of edges**: Close to V^2 (almost all possible connections are present).
+- **Space complexity**: Dense graphs typically use more memory because of the large number of edges.
+    - **Adjacency Matrix** is usually better for storing dense graphs because you can quickly check if an edge exists.
+
+**Common Use Cases**:
+
+- **Social Networks**: Large networks like Facebook or LinkedIn, where users are connected to many other users.
+- **Fully Connected Networks**: In networking, a fully connected mesh topology is a dense graph where every node is directly connected to every other node.
+
+**Why it Matters**:
+
+- In a dense graph, algorithms that iterate over all edges will be slower because there are more edges to process.
+- Memory usage is higher when storing a dense graph.
+
+---
+
+**2. Sparse Graph**
+
+**Definition**:
+
+A **sparse graph** is a graph in which there are **very few edges** relative to the number of vertices. In a sparse graph, most vertices are not directly connected to many others.
+
+A graph is typically called **sparse** if it has **far fewer than the maximum number of possible edges**.
+
+**Example**:
+
+For a graph with 5 vertices, the maximum number of edges is 10, but if the graph only has 3 edges, it would be considered **sparse**.
+
+**Properties**:
+
+- **Number of edges**: Closer to V, meaning far fewer than the maximum possible number.
+- **Space complexity**: Sparse graphs are more memory efficient.
+    - **Adjacency List** is typically used for storing sparse graphs, as it only stores the existing edges and avoids wasting memory on non-existent edges.
+
+#### **Common Use Cases**:
+
+- **Road Networks**: A real-world road network where each city (vertex) is connected to only a few neighboring cities.
+- **Tree-like Structures**: A tree is a type of sparse graph where there are exactly V−1V - 1V−1 edges for V nodes.
+
+#### **Why it Matters**:
+
+- In a sparse graph, algorithms that process edges (like DFS, BFS) tend to run faster since there are fewer edges to explore.
+- Memory usage is lower because only existing edges are stored.
+
+---
+
+**Comparison Table**
+
+|Aspect|**Dense Graph**|**Sparse Graph**|
+|---|---|---|
+|**Number of Edges**|Close to V2V^2V2 (almost every pair of nodes is connected)|Closer to VVV (most pairs of nodes are not connected)|
+|**Space Complexity**|Higher (uses more memory, especially with an adjacency matrix)|Lower (more efficient with adjacency lists)|
+|**Edge Lookup**|Fast with **Adjacency Matrix** (`O(1)` edge check)|Better with **Adjacency List** (`O(k)` neighbors check)|
+|**Example Graphs**|**Social Networks**, **fully connected networks**, **mesh topologies**|**Road Networks**, **tree-like structures**, **friendship networks**|
+|**Memory Usage**|High (due to many edges)|Low (due to fewer edges)|
+|**Algorithms**|Some algorithms may take longer due to the large number of edges|Algorithms can run faster as there are fewer edges to process|
 
 
 ## Real-World Usage 
