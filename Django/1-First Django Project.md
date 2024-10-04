@@ -76,3 +76,22 @@ Inside this folder are critical configuration files that dictate how your projec
 ###### **`__init__.py`**
 
 - **What it is**: This file tells Python that this directory is a package, allowing you to import things between different files within the project.
+
+
+
+
+
+
+
+
+
+# To Run The Server
+```
+python manage.py runserver
+```
+هيعملي لوكال سيرفر اشوف عليه الشغل بتاعي 
+وهيديلي الip بتاعه
+هيكون شغال طلاما بروسيس الرن بتاعت الcmd شغاله 
+لو عايز اقفل السيرفر هوقف الكوماند
+
+![[Pasted image 20241004191844.png]]
