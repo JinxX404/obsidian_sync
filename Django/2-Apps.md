@@ -1,3 +1,5 @@
+An app is a web application that has a specific meaning in your project, like a home page, a contact form, or a members database.
+
 Each app represents a specific feature or section of your website (like "blog", "users", etc.).
 كل بروجكت بيتكون من Applications مختلفه 
 او كل سكشن فالبروجكت يعتبر applications

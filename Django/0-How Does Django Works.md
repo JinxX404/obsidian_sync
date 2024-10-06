@@ -49,3 +49,25 @@ Django uses standard HTML to describe the layout, but uses Django tags to add lo
 ```
 
 The templates of an application is located in a folder named `templates`.
+التيمبلت بيكون فيه الريبرزنتيشن بتاعت الداتا الي معانا 
+وبيكون فايل html او انواع تاني 
+هنستخدم الhtml علشان نعمل ال layout وبنستخدم ال django tags علشان نضيف اللوجيك
+
+
+## URLs
+
+Django also provides a way to navigate around the different pages in a website.
+
+When a user requests a URL, Django decides which _view_ it will send it to.
+
+This is done in a file called `urls.py`.
+
+
+## So, What is Going On?
+When you have installed Django and created your first Django web application, and the browser requests the URL, this is basically what happens:
+
+1. Django receives the URL, checks the `urls.py` file, and calls the view that matches the URL.
+2. The view, located in `views.py`, checks for relevant models.
+3. The models are imported from the `models.py` file.
+4. The view then sends the data to a specified template in the `template` folder.
+5. The template contains HTML and Django tags, and with the data it returns finished HTML content back to the browser.

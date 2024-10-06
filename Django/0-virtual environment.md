@@ -1,5 +1,10 @@
 A **virtual environment** helps you keep your project dependencies isolated from the rest of your system. It’s like creating a mini space for each project, which helps avoid version conflicts when working on multiple Python projects.
 
+It is suggested to have a dedicated virtual environment for each Django project, and one way to manage a virtual environment is [venv](https://docs.python.org/3/tutorial/venv.html), which is included in Python.
+The name of the virtual environment is your choice.
+
+> **Note: You must activate the virtual environment every time you open the command prompt to work on your project.**
+
 بنعمل فيرشوال انفايرونمينت علشان يكون فيها كل الديبيندينسي بتاعتنا للبروجكت 
 يعني كل بروجكت هعمله انفايرونمينت علشان مياثرش او ميتاثرش باي حاجه حواليه
 
