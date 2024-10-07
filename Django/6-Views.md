@@ -54,12 +54,9 @@ def members(request):
 def members(request):
     variables = {
         'name' : 'Moataz Mohammed',
-
         'age' : 21
-
     }
-
-    return render(request , 'index.html' , variables)
+    return render(request , 'index.html' , context=variables)
 ```
 
 
