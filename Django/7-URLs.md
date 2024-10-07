@@ -161,3 +161,35 @@ In this code:
 1. If you go to `/books/`, Django first checks the **project `urls.py`** and sees that any URL starting with `books/` goes to `books/urls.py`.
 2. Then, in `books/urls.py`, it matches `''` (the empty string) to `views.book_list_view`, meaning you get the **list view**.
 3. If you go to `/books/1/`, Django matches `<int:id>/` and calls `views.book_detail_view` with `id=1`, displaying details for that book.
+
+
+
+بنعمل الapps الي عايزينها 
+ونروح نربطها في فايل الsettings للبروجكت جوه installed apps بنحطها فالديكشنري 
+بنحط اسم الapp بين ' ' 
+وبعدين بنمسك فايل الurl بتاع البروجكت 
+ونعمل route للapps 
+نقوله لو جالك كذا وديه لكذا 
+بنستخدم هنا include function علشان نباصي جواها فايل الurls بتاع الapp 
+```python
+    path('member', include('members.urls')),
+```
+بحط الpath جوه الليست الي اسمها urlpatterns 
+بيتحط فيها كل الRoutes 
+الpath بيتباصي فيه اتنين ارجومنت 
+الاول هو الroute الي هو بيكون فاللينك مثلا 127.0.0.1/member 
+هنا هياخد الmember ويعرف انه رايح للapp الي اسمه member 
+والاجومنت التاني بنعمل فيها include للurls بتاعت الابب ده
+يعني معناها لو جالك route للapp الي اسمه member وديه للurls بتاعت mmebers يروح يدور جواها عالماتشينج بتاعه 
+
+ممكن من هنا معملش include واباصيله view 
+حسب الcase 
+
+ولما بروح الurls بتاع الapp بنعمل import للviews علشان هنستخدمها جواه 
+```python
+    path('', views.members, name='members'),
+```
+هنا جوه الurl للapp بقوله لو جالك Route وديه للviews.members 
+يعني هبعته لview ده جوه فايل Views (قولنا ان الview هو فانكشن)
+وبديله اسم هحتاجه بعدين 
+

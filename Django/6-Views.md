@@ -15,9 +15,58 @@ Views are usually put in a file called `views.py` located on your app's folder
 بنروحله عن طريق url
 
 
-#### Types of Views:
+الفيو بيجيله ريكويست وبيبقي عايز يبعت ريسبونس 
+فبيستخدم الموديول بتاع django.http بستخدم من جواها فانكشن HttpResponse وببعت فيها ريسبونس 
+ممكن يكون جمله زي 
+```python
+def members(request):
+    return HttpResponse("Hello world!")
+```
+
+الurl هيبعتنا للفانكشن دي هيبعتلها ريكويست وهي هترجع ريسبونس
+
+
+او الفيو بدل ما يبعت جمله يقدر يبعت تيمبلت كامل فيه كلام زي فايل html مثلا
+هنا هيحتاج يعمل render ف هيستخدم موديول django.shortcuts ويستخدم من جواه render
+```python
+def members(request):
+    return render(request , 'index.html')
+```
+او 
+علشان نستخدم التيمبلت فالview هنحتاج موديول django.template ومن جواه فانكشن loader ومعاه موديول django.http من جواه HttpResponse
+
+```python
+from django.http import HttpResponse
+from django.template import loader
+
+def members(request):
+  template = loader.get_template('index.html')
+  return HttpResponse(template.render())
+```
+فالاول بنستخدم ال loader علشان نعمل لوود للتيمبلت 
+وبنرجع response جواها التيمبلت معموله ريندر
+
+
+فالفيو بيكون عندنا فاريبلز وبنبعتها في ديكشنري مع الريندر بتاع التيمبلت 
+واقدر استخدم الفاريبلز دي فالتيمبلت 
+هباصيها فالارجومنت بتاع context 
+```python
+def members(request):
+    variables = {
+        'name' : 'Moataz Mohammed',
+
+        'age' : 21
+
+    }
+
+    return render(request , 'index.html' , variables)
+```
+
+
+###### Types of Views:
 
 1. **Function-based Views (FBVs)**: Simple functions that handle a request and return a response.
 2. **Class-based Views (CBVs)**: More advanced views where each request method (like GET or POST) is a method in the class.
+
 
 
