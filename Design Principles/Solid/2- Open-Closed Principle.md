@@ -23,3 +23,5 @@ If you want the Class to perform more functions, the ideal approach is to add to
 
 **Goal**
 This principle aims to extend a Class’s behaviour without changing the existing behaviour of that Class. This is to avoid causing bugs wherever the Class is being used.
+
+-----------
