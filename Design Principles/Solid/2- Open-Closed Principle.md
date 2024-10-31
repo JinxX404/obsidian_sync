@@ -1,9 +1,13 @@
+سهل اني ازود عليها من غير ما اغير فيها
+
 ![[Pasted image 20240623220007.png]]
 
 
  “***Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification****”
 
 which means you should be able to extend a class behavior, without modifying it.
+
+
 
 معناها انه السوفتوير انتتي ده اقدر اضيف عليه بدون ما احتاج اعدل علي حاجه تاني فالسيستم 
 يعني ينفع أاextend السيستم لاكن مينفعش اعدل علي الموجود 
@@ -18,5 +22,4 @@ Instead of modifying the existing `PaymentProcessor` class to add PayPal suppo
 If you want the Class to perform more functions, the ideal approach is to add to the functions that already exist NOT change them.
 
 **Goal**
-
 This principle aims to extend a Class’s behaviour without changing the existing behaviour of that Class. This is to avoid causing bugs wherever the Class is being used.
