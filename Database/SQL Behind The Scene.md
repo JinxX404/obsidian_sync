@@ -1,3 +1,6 @@
+---
+refrence: https://medium.com/@abil.samedov502/demystifying-the-database-engine-how-sql-works-behind-the-scenes-56859c27ef69
+---
 ازاي كود ال sql بيشتغل ويروح يجيب الداتا؟
 ايه المراحل الي بيمر عليها؟
 فيه اكتر من تقسيمه وحسب كل DBMS بيعامل الكويري ازاي 
@@ -28,3 +31,28 @@ The parser also validates that the user running the query has the necessary auth
 بعد ما بنعمل parse 
 بنبص علي ازاي هننفذ الكويري دي وايه افضل طريقه ننفذها بيها 
 ممكن يختار كويري غير الي انا كتبتها علشان ممكن يكون ليها اقل resource او افضل performance 
+
+
+3-**Query Execution:** With the optimized plan in hand, the engine starts executing the query. This involves accessing the relevant data from storage, performing operations like filtering and sorting, and finally returning the result set.
+بعد ما بقي عندنا افضل طريقه لتنفسذ الكويري المطلوبه (ليها اقل resource وافضل performance)
+ال engine هيبدا ينفذها 
+
+4-**Transaction Management:** SQL engines ensure data integrity and consistency through transaction management. A transaction is a logical unit of work that comprises multiple operations. The engine guarantees that all operations within a transaction are either committed (applied to the database) or rolled back (undone) in case of errors or system failures.
+ال transaction هي مجموعة من ال operation يخصو حاجه معينه 
+اما يتنفذو مع بعض او لو واحده منهم فشلت يقدر يرجع كل ال operations الي حصلت (rollback)
+يعني زي العملية البنكية , لازم يتنفذ اكتر من خطوه ك عملية واحده 
+مثلا هخصم الفلوس من الحساب الاول وهزودها فالحساب التاني
+طب لو تاني خطوه فشلت (اني ازود الفلوس فالحساب التاني) زي ان النور قطع والعمليه التانيه لسه متمتش؟ كده الفلوس راحت فالهوا لانها اتخصمت من مكان ومزادتش فالتاني
+ف لازم الداتابيز يكون عندها القدرة تعمل transaction علشان الداتا تكون integrate , consistent
+اما كلهم يتنفذو او ميتنفذوش 
+
+----
+
+
+```sql
+mysql> SELECT name, age FROM users WHERE age > 18;
+```
+
+The engine parses this query, identifies the table (“users”), columns (“name”, “age”), and the filtering condition (“age > 18”). The optimizer then determines the best way to access the data, potentially utilizing an index on the “age” column. Finally, the engine retrieves the matching rows and returns the “name” and “age” values.
+
+![](https://miro.medium.com/v2/resize:fit:864/1*PtnHexI1Yezdl6HZ-oXpag.png)
