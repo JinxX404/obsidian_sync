@@ -21,6 +21,11 @@
 
 وكلاسات ال concreteDecorator فيهم الميثودز الجديده الي كنا عايزين نضيفها علي الكونكريت كلاس
 
+1. **Component**: The main interface or abstract class defining the common behavior.
+2. **Concrete Component**: The core implementation of the component interface.
+3. **Decorator**: An abstract class that implements the component interface and is used as a wrapper.
+4. **Concrete Decorator**: The specific decorator that adds extra behavior.
+
 
 
 ![[Pasted image 20250106194525.png]]
