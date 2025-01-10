@@ -1,0 +1,1 @@
+**Members with this modifier are only accessible within the same class or struct.**

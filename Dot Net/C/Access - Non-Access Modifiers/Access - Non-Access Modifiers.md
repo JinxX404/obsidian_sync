@@ -18,7 +18,7 @@
 
 [[Abstract]]
 
-[[Dot Net/C/Access - Non-Access Modifiers/Static]]
+[[Static]]
 
 [[Partial]]
 

@@ -12,7 +12,7 @@
 
 [[expressions]]
 
-[[19-Alias]]
+[[alias]]
 
 [[Casting]]
 
@@ -28,19 +28,19 @@
 
 [[Constructor Overloading & Chaining]]
 
-[[18-Properties (First Class Member)]]
+[[Properties]]
 
-[[20-Object Initializer]]
+[[Object Initializer]]
 
 [[private constructor]]
 
 [[Indexer]]
 
-[[38-Lambda Expressions]]
+[[Lambda Expressions]]
 
 [[expression-bodied members]]
 
-[[37-Delegates]]
+[[Delegates]]
 
 [[Operator Overloading]]
 
