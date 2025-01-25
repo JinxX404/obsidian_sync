@@ -80,3 +80,5 @@ Now, the database is ready to store books! You can start adding books like _The 
 المودل هي تعتبر الentites الي عايز اخزن عنها داتا ف بمثلها في كلاس 
 وبعدين migration عباره عن تعليمات عن ازاي يخزن المودل ده فالداتابيز 
 وبعدين بيطبق الmigration ده فبيتحول لجدول فالداتابيز
+
+
