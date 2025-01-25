@@ -180,3 +180,76 @@ mydata = Member.objects.filter(firstname='Emil').values() | Member.objects.filte
 ```
 هيحقق كل جمله لوحدها ويرجع اوتبوت وبعدين هيتعملهم merge في نفس الفاريبل
 
+
+***Field Lookups****
+
+Django has its own way of specifying SQL statements and WHERE clauses.
+To make specific where clauses in Django, use "Field lookups".
+Field lookups are keywords that represents specific SQL keywords.
+
+Use the `__startswith` keyword:
+```jsx
+.filter(firstname__startswith='L');
+```
+
+Is the same as the SQL statement:
+```sql
+WHERE firstname LIKE 'L%'
+```
+The above statement will return records where firstname starts with 'L'.
+
+**Field Lookups Syntax**
+السينتاكس بتاعها بيكون اسم الcolumn وبعده اتنين -- وبعدين ال field lookup بتاعنا 
+
+A list of all field look up keywords:
+
+|Keyword|Description|
+|---|---|
+|[contains](https://www.w3schools.com/django/ref_lookups_contains.php)|Contains the phrase|
+|[icontains](https://www.w3schools.com/django/ref_lookups_icontains.php)|Same as contains, but case-insensitive|
+|date|Matches a date|
+|day|Matches a date (day of month, 1-31) (for dates)|
+|[endswith](https://www.w3schools.com/django/ref_lookups_endswith.php)|Ends with|
+|[iendswith](https://www.w3schools.com/django/ref_lookups_iendswith.php)|Same as endswidth, but case-insensitive|
+|[exact](https://www.w3schools.com/django/ref_lookups_exact.php)|An exact match|
+|[iexact](https://www.w3schools.com/django/ref_lookups_iexact.php)|Same as exact, but case-insensitive|
+|[in](https://www.w3schools.com/django/ref_lookups_in.php)|Matches one of the values|
+|isnull|Matches NULL values|
+|[gt](https://www.w3schools.com/django/ref_lookups_gt.php)|Greater than|
+|[gte](https://www.w3schools.com/django/ref_lookups_gte.php)|Greater than, or equal to|
+|hour|Matches an hour (for datetimes)|
+|[lt](https://www.w3schools.com/django/ref_lookups_lt.php)|Less than|
+|[lte](https://www.w3schools.com/django/ref_lookups_lte.php)|Less than, or equal to|
+|minute|Matches a minute (for datetimes)|
+|month|Matches a month (for dates)|
+|quarter|Matches a quarter of the year (1-4) (for dates)|
+|[range](https://www.w3schools.com/django/ref_lookups_range.php)|Match between|
+|regex|Matches a regular expression|
+|iregex|Same as regex, but case-insensitive|
+|second|Matches a second (for datetimes)|
+|[startswith](https://www.w3schools.com/django/ref_lookups_startswith.php)|Starts with|
+|[istartswith](https://www.w3schools.com/django/ref_lookups_istartswith.php)|Same as startswith, but case-insensitive|
+|time|Matches a time (for datetimes)|
+|week|Matches a week number (1-53) (for dates)|
+|week_day|Matches a day of week (1-7) 1 is sunday|
+|iso_week_day|Matches a ISO 8601 day of week (1-7) 1 is monday|
+|year|Matches a year (for dates)|
+|iso_year|Matches an ISO 8601 year (for dates)|
+
+لو عايزين نعمل ordering للداتا الي راجعه بنستخدم order_by() وبنديله اسم ال column الي هنرتب علي اساسه
+```jsx
+mydata = Member.objects.all().order_by('firstname').values()
+```
+ديفولت بيرتب تصاعديا asec 
+
+لو عايزين نرتب تنازليا desc 
+هنستخدم - قبل اسم العمود
+```jsx
+mydata = Member.objects.all().order_by('-firstname').values()
+```
+
+لو هنعمل اوردر علي اكتر من col بنباصيهم جوه الميثود ك arguments
+```jsx
+mydata = Member.objects.all().order_by('lastname', '-id').values()
+```
+هنا هيرتب فالاول علي ال lastname تصاعديا وبعدين id تنازليا
